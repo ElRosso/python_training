@@ -39,11 +39,10 @@ def file_parsing(fname, parse_line):
         with open(fname,'r') as f:
             while True:
                 line = f.readline()
-                if line:
-                    if line.find(parse_line) > -1:
-                        yield line
-                else:
+                if not line:
                     break
+                if line.find(parse_line) > -1:
+                    yield line
     except Exception:
         print "File not Found"
 
